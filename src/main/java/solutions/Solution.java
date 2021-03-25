@@ -4,5 +4,5 @@ import equation.Equation;
 
 public interface Solution {
     String getName();
-    double findRootEquation(Equation equation, double a, double b, double accuracy);
+    void findRootEquation(Equation equation, double a, double b, double accuracy);
 }
