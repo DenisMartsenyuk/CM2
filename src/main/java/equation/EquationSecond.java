@@ -7,8 +7,13 @@ public class EquationSecond implements Equation{
     }
 
     @Override
-    public double calcDerivativeValue(double x) {
+    public double calcDerivativeFirstValue(double x) {
         return 2 * Math.cos(2 * x);
+    }
+
+    @Override
+    public double calcDerivativeSecondValue(double x) {
+        return -4 * Math.sin(2 * x);
     }
 
     @Override

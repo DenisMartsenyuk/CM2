@@ -7,8 +7,13 @@ public class EquationFirst implements Equation {
     }
 
     @Override
-    public double calcDerivativeValue(double x) {
+    public double calcDerivativeFirstValue(double x) {
         return 6.9 * x * x + 11.5 * x - 7.41;
+    }
+
+    @Override
+    public double calcDerivativeSecondValue(double x) {
+        return 13.8 * x + 11.5;
     }
 
     @Override

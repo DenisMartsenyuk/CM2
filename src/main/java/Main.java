@@ -56,14 +56,14 @@ public class Main {
         System.out.println("Введите точность из промежутка (0, 1):");
         double accuracy = scanner.nextDouble();
 
-        if (!rootChecker.check(equations.get(equationsIndex), a, b)) {
-            System.out.println("Корней в этом промежутке нет.");
-            return;
-        }
-        if (!singleRootChecker.check(equations.get(equationsIndex), a, b)) {
-            System.out.println("Корней в этом промежутке несколько.");
-            return;
-        }
+//        if (!rootChecker.check(equations.get(equationsIndex), a, b)) {
+//            System.out.println("Корней в этом промежутке нет.");
+//            return;
+//        }
+//        if (!singleRootChecker.check(equations.get(equationsIndex), a, b)) {
+//            System.out.println("Корней в этом промежутке несколько.");
+//            return;
+//        }
         solutions.get(solutionIndex).findRootEquation(equations.get(equationsIndex), a, b, accuracy);
     }
 }
