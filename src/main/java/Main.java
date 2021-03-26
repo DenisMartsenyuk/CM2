@@ -5,6 +5,7 @@ import equation.Equation;
 import equation.EquationFirst;
 import equation.EquationSecond;
 import equation.EquationThird;
+import exceptions.SolutionException;
 import solutions.HalfDivisionSolution;
 import solutions.SecantSolution;
 import solutions.SimpleIterationSolution;
@@ -80,7 +81,9 @@ public class Main {
 
             double x = solutions.get(solutionIndex).findRootEquation(equations.get(equationsIndex), a, b, accuracy);
             System.out.println("x = " + x);
-        } catch (Exception e) {
+        } catch (SolutionException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e1) {
             System.out.println("Произошел сбой при чтении данных.");
         }
 
