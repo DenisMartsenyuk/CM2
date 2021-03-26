@@ -1,6 +1,5 @@
 import auxiliary.Checkable;
-import auxiliary.RootChecker;
-import auxiliary.SingleRootChecker;
+import auxiliary.RootsChecker;
 import drawing.Painter;
 import equation.Equation;
 import equation.EquationFirst;
@@ -27,8 +26,7 @@ public class Main {
         solutions.add(new SecantSolution());
         solutions.add(new SimpleIterationSolution());
 
-        Checkable rootChecker = new RootChecker();
-        Checkable singleRootChecker = new SingleRootChecker();
+        Checkable rootsChecker = new RootsChecker();
 
         Painter painter = new Painter();
 
@@ -75,15 +73,13 @@ public class Main {
                 return;
             }
 
-//            if (!rootChecker.check(equations.get(equationsIndex), a, b)) {
-//                System.out.println("Корней в этом промежутке нет.");
-//                return;
-//            }
-            if (!singleRootChecker.check(equations.get(equationsIndex), a, b)) { //todo починить
-                System.out.println("Корней в этом промежутке несколько.");
+            if (!rootsChecker.check(equations.get(equationsIndex), a, b)) {
+                System.out.println("Корней в этом промежутке нет или их несколько.");
                 return;
             }
-            solutions.get(solutionIndex).findRootEquation(equations.get(equationsIndex), a, b, accuracy);
+
+            double x = solutions.get(solutionIndex).findRootEquation(equations.get(equationsIndex), a, b, accuracy);
+            System.out.println("x = " + x);
         } catch (Exception e) {
             System.out.println("Произошел сбой при чтении данных.");
         }
