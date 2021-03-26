@@ -19,7 +19,7 @@ public class SecantSolution implements Solution{
     }
 
     @Override
-    public double findRootEquation(Equation equation, double a, double b, double accuracy) { //todo невсегда робит
+    public double findRootEquation(Equation equation, double a, double b, double accuracy) {
         double prePreviousX = findX0(equation, a, b);
         double previousX = prePreviousX - equation.calcValue(prePreviousX) / equation.calcDerivativeFirstValue(prePreviousX);
         while (Math.abs(previousX - prePreviousX) > accuracy) {
