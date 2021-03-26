@@ -19,7 +19,7 @@ public class SimpleIterationSolution implements Solution {
     }
 
     @Override
-    public void findRootEquation(Equation equation, double a, double b, double accuracy) {
+    public void findRootEquation(Equation equation, double a, double b, double accuracy) { //todo не всегда робит
         System.out.printf("%11s", "№ шага");
         System.out.printf("%11s", "x(k)");
         System.out.printf("%11s", "f(x(k))");

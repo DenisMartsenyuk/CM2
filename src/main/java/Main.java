@@ -1,6 +1,7 @@
 import auxiliary.Checkable;
 import auxiliary.RootChecker;
 import auxiliary.SingleRootChecker;
+import drawing.Painter;
 import equation.Equation;
 import equation.EquationFirst;
 import equation.EquationSecond;
@@ -29,10 +30,12 @@ public class Main {
         Checkable rootChecker = new RootChecker();
         Checkable singleRootChecker = new SingleRootChecker();
 
+        Painter painter = new Painter();
+
         try {
             Scanner scanner = new Scanner(System.in);
 
-            System.out.println("Доступные уравнения: "); //todo мб переназвать
+            System.out.println("Доступные уравнения: ");
             for (int i = 0; i < equations.size(); ++i) {
                 System.out.println(i + 1 + ": " + equations.get(i).getName());
             }
@@ -43,9 +46,10 @@ public class Main {
                 System.out.println("Неверно введен номер уравнения.");
                 return;
             }
-            //todo нарисовать
 
-            System.out.println("Доступные методы поиска корня: "); //todo мб переназвать
+            painter.drawEquation(equations.get(equationsIndex));
+
+            System.out.println("Доступные методы поиска корня: ");
             for (int i = 0; i < solutions.size(); ++i) {
                 System.out.println(i + 1 + ": " + solutions.get(i).getName());
             }
@@ -57,7 +61,7 @@ public class Main {
                 return;
             }
 
-            System.out.println("ОБРАТИТЕ ВНИМАНИЕ! ВСЕ ДРОБНЫЕ ЧИСЛА ВВОДЯТСЯ ЧЕРЕЗ ЗАПЯТУЮ!"); //todo мб перенести это
+            System.out.println("ОБРАТИТЕ ВНИМАНИЕ! ВСЕ ДРОБНЫЕ ЧИСЛА ВВОДЯТСЯ ЧЕРЕЗ ЗАПЯТУЮ!");
             System.out.println("Введите a:");
             double a = scanner.nextDouble();
 
@@ -75,7 +79,7 @@ public class Main {
 //                System.out.println("Корней в этом промежутке нет.");
 //                return;
 //            }
-            if (!singleRootChecker.check(equations.get(equationsIndex), a, b)) {
+            if (!singleRootChecker.check(equations.get(equationsIndex), a, b)) { //todo починить
                 System.out.println("Корней в этом промежутке несколько.");
                 return;
             }
