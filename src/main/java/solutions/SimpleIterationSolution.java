@@ -27,12 +27,14 @@ public class SimpleIterationSolution implements Solution {
             throw new SolutionException("Условие сходимости не выполнено. Выберите другой промежуток.");
         }
         double previousX = findX0(equation, a, b);
-        double infelicity = accuracy + 0.1;
-        while (infelicity > accuracy) {
-            double currentX = previousX + lambda * equation.calcValue(previousX);
-            infelicity = Math.abs(currentX - previousX);
+        double currentX = previousX;
+        do {
             previousX = currentX;
-        }
+            currentX = previousX + lambda * equation.calcValue(previousX);
+            if (previousX > b || previousX < a) {
+                throw new SolutionException("Выберите более узкий промежуток.");
+            }
+        } while (Math.abs(currentX - previousX) > accuracy);
         return previousX;
     }
 }
